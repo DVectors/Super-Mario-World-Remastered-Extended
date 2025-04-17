@@ -1,3 +1,4 @@
+class_name WallCrawler
 extends Enemy
 
 @export var move_speed := 100

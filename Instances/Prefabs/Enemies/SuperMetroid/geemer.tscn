@@ -1,0 +1,86 @@
+[gd_scene load_steps=12 format=3 uid="uid://btqibn0mcb0bo"]
+
+[ext_resource type="Script" uid="uid://cy3vqkggqgb7s" path="res://Scripts/Classes/Enemies/SuperMetroid/geemer.gd" id="1_t1frd"]
+[ext_resource type="Texture2D" uid="uid://dcm4xm05u45pt" path="res://Assets/Sprites/Enemys/SuperMetroid/Geemers/Blue.png" id="2_k7l0d"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lom7b"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_22xvw"]
+atlas = ExtResource("2_k7l0d")
+region = Rect2(0, 0, 22, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2o68b"]
+atlas = ExtResource("2_k7l0d")
+region = Rect2(22, 0, 22, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evgw8"]
+atlas = ExtResource("2_k7l0d")
+region = Rect2(44, 0, 22, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yfjx7"]
+atlas = ExtResource("2_k7l0d")
+region = Rect2(66, 0, 22, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_irdy5"]
+atlas = ExtResource("2_k7l0d")
+region = Rect2(88, 0, 22, 18)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0si4w"]
+atlas = ExtResource("2_k7l0d")
+region = Rect2(110, 0, 22, 18)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ily7j"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_22xvw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2o68b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evgw8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yfjx7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_irdy5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0si4w")
+}],
+"loop": true,
+"name": &"default",
+"speed": 24.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8drpr"]
+
+[node name="Geemer" type="CharacterBody2D"]
+script = ExtResource("1_t1frd")
+move_speed = 50
+can_rotate = true
+can_jump_on = false
+spiky_top = true
+can_ice_freeze = false
+metadata/_custom_type_script = "uid://bqdfwdbvl65wk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.83, 0.83)
+shape = SubResource("RectangleShape2D_lom7b")
+
+[node name="Sprite" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_ily7j")
+autoplay = "default"
+frame_progress = 0.596966
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+scale = Vector2(0.95, 0.95)
+shape = SubResource("RectangleShape2D_8drpr")
+debug_color = Color(0.900213, 0.000169998, 0.763359, 0.42)
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="."]
+scale = Vector2(1.1, 1.1)
